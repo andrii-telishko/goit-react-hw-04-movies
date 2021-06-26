@@ -1,8 +1,9 @@
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import HomePage from './pages/HomePage'
-import MoviesPage from './pages/MoviesPage'
+import HomePage from './pages/HomePage';
+import MoviesPage from './pages/MoviesPage';
+import MovieDetailPage from './pages/MovieDetailPage'
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Navigation />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/movies" component={MoviesPage} />
+        <Route path="/movies/:movieId" component={MovieDetailPage} />
+        <Route path="/movies" component={MoviesPage} />
       </Switch>
     </>
   );

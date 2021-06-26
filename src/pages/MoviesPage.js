@@ -10,7 +10,7 @@ export default class MoviePage extends Component {
 
     renderMovies = (e) => {
         e.preventDefault()
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=cd1e7325345214650c5eb886e4454039&language=en-US&query=${this.state.value}`).then(response => {
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=cd1e7325345214650c5eb886e4454039&query=${this.state.value}`).then(response => {
             this.setState({ movies: response.data.results })
         })
     };
