@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, Link } from 'react-router-dom';
 import Cast from '../components/Cast';
-import Reviews from '../components/Reviews'
+import Reviews from '../components/Reviews';
+import routes from '../routes'
 
 export default class MovieDetailPage extends Component {
     state = {
@@ -47,16 +48,16 @@ export default class MovieDetailPage extends Component {
                 <p>Additional information</p>
                 <ul>
                     <li>
-                        <Link to={`/movies/${this.props.match.params.movieId}/cast`}>Cast</Link>
+                        <Link to={`${routes.movies}/${this.props.match.params.movieId}/cast`}>Cast</Link>
                     </li>
                     <li>
-                        <Link to={`/movies/${this.props.match.params.movieId}/reviews`}>Reviews</Link>
+                        <Link to={`${routes.movies}/${this.props.match.params.movieId}/reviews`}>Reviews</Link>
                     </li>
                 </ul>
-                <Route path='/movies/:movieId/cast' render={props => {
+                <Route path={`${routes.cast}`} render={props => {
                     return (< Cast movieId={props.match.params.movieId} />)
                 }} />
-                <Route path='/movies/:movieId/reviews'
+                <Route path={`${routes.reviews}`}
                     render={props => {
                         return < Reviews movieId={props.match.params.movieId} />
                     }} />

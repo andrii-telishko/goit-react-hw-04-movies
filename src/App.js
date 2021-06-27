@@ -2,6 +2,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import React, { Suspense, lazy } from 'react';
+import routes from './routes'
 
 const HomePage = lazy(() => import('./pages/HomePage' /* webpackChunkName: "home_page" */));
 
@@ -15,9 +16,9 @@ function App() {
       <Navigation />
       <Suspense fallback={<h1>Loading...</h1>}>
         <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/movies/:movieId" component={MovieDetailPage} />
-        <Route path="/movies" component={MoviesPage} />
+        <Route exact path={routes.home} component={HomePage} />
+        <Route path={routes.detailsMovies} component={MovieDetailPage} />
+        <Route path={routes.movies} component={MoviesPage} />
       </Switch>
       </Suspense>
     </>
