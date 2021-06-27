@@ -9,6 +9,7 @@ export default class HomePage extends Component {
 
     componentDidMount() {
         axios.get('https://api.themoviedb.org/3/trending/all/day?api_key=cd1e7325345214650c5eb886e4454039').then(response => { this.setState({ movies: response.data.results }) });
+        localStorage.setItem('movies', JSON.stringify([]))
     };
 
     render() {
