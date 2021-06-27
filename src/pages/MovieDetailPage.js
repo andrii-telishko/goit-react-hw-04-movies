@@ -16,12 +16,23 @@ export default class MovieDetailPage extends Component {
 
     componentDidMount() {
         axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=cd1e7325345214650c5eb886e4454039`).then(response => this.setState({ ...response.data }))
-    }
+    };
+
+    handleGoBack = () => {
+        const { location, history } = this.props;
+
+        if (location.state && location.state.from) {
+          return history.push(location.state.from);
+        }
+
+         history.push('/');
+    };
 
     render() {
         const IMG_URL = 'https://image.tmdb.org/t/p/w500'
         return (
             <>
+                <button type="button" onClick={this.handleGoBack}>Go Back</button>
                 <div>
                     <img src={`${IMG_URL}/${this.state.poster_path}`} alt={this.state.title} />
                     <h2>{this.state.title}</h2>

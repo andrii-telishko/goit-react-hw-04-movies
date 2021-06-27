@@ -1,13 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-export default function RenderMovies({ movies }) {
+function RenderMovies({ movies, location }) {
     return (
         <ul>{movies.map(movie =>
         (<li key={movie.id}>
-            <Link to={`movies/${movie.id}`}> {movie.title ? movie.title : movie.name}</Link>
+            <Link to={{
+                pathname: `movies/${movie.id}`,
+                state: {from: location}
+            }}> {movie.title ? movie.title : movie.name}</Link>
         </li>))
         }
         </ul >
     );
 };
+
+export default withRouter(RenderMovies);
