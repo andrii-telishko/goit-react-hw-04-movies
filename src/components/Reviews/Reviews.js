@@ -11,15 +11,19 @@ export default class Reviews extends Component {
     };
 
     render() {
-        return (<ul>
-            {this.state.reviews.map(review => (
-                <li key={review.id}>
-                    <h3>{review.author}</h3>
-                    <p>{review.content}</p>
-                </li>
-            ))}
-        </ul>)
-    }
+        return (
+            this.state.reviews.length > 0
+                ? <ul>
+                    {this.state.reviews.map(review => (
+                        <li key={review.id}>
+                            <h3>{review.author}</h3>
+                            <p>{review.content}</p>
+                        </li>
+                    ))}
+                </ul>
+                : <h1>Hello!! There is no reviews yet</h1>);
+        
+    };
 };
 
 

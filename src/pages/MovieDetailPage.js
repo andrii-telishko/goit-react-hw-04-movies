@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, withRouter } from 'react-router-dom';
 import Cast from '../components/Cast';
 import Reviews from '../components/Reviews';
 import routes from '../routes';
-import API from '../api-service'
+import API from '../api-service';
 
-export default class MovieDetailPage extends Component {
+
+class MovieDetailPage extends Component {
     state = {
         poster_path: '',
         title: '',
@@ -26,7 +27,7 @@ export default class MovieDetailPage extends Component {
           return history.push(location.state.from);
         }
 
-         history.push('/');
+         history.push(`${routes.home}`);
     };
 
     render() {
@@ -48,10 +49,14 @@ export default class MovieDetailPage extends Component {
                 <p>Additional information</p>
                 <ul>
                     <li>
-                        <Link to={`${routes.movies}/${this.props.match.params.movieId}/cast`}>Cast</Link>
+                        <Link to={{
+                            pathname: `${routes.movies}/${this.props.match.params.movieId}/cast`,
+                            state: {from: this.props.location}}}>Cast</Link>
                     </li>
                     <li>
-                        <Link to={`${routes.movies}/${this.props.match.params.movieId}/reviews`}>Reviews</Link>
+                        <Link to={{
+                            pathname: `${routes.movies}/${this.props.match.params.movieId}/reviews`,
+                            state: {from: this.props.location}}}>Reviews</Link>
                     </li>
                 </ul>
                 <Route path={`${routes.cast}`} render={props => {
@@ -65,4 +70,6 @@ export default class MovieDetailPage extends Component {
         );
     };
 };
+
+export default withRouter(MovieDetailPage)
 

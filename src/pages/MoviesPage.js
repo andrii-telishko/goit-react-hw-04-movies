@@ -12,8 +12,12 @@ export default class MoviePage extends Component {
         e.preventDefault()
         API.fetchMoviesWithSearchQuery(this.state.value).then(movies => {
             this.setState({ movies: movies });
-            localStorage.setItem('movies', JSON.stringify(movies))
-        })
+            localStorage.setItem('movies', JSON.stringify(movies));
+            if (this.state.movies.length === 0) {
+            alert('We could not find movies with this query')
+        }
+        });
+        
     };
 
     setValue = (e) => {
@@ -27,8 +31,7 @@ export default class MoviePage extends Component {
                     <input type="text" value={this.state.value} onChange={this.setValue} />
                     <button type='submit'>Search</button>
                 </form>
-                {
-                    this.state.movies.length > 0 && <RenderMovies movies={this.state.movies} />}
+                {this.state.movies.length > 0 && <RenderMovies movies={this.state.movies} />}
             </>
         );
     };
