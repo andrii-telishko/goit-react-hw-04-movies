@@ -3,12 +3,12 @@ import { Link, withRouter } from 'react-router-dom';
 
 function RenderMovies({ movies, location }) {
     return (
-        <ul>{movies.map(movie =>
-        (<li key={movie.id}>
+        <ul>{movies.map(({id, title, name}) =>
+        (<li key={id}>
             <Link to={{
-                pathname: `movies/${movie.id}`,
+                pathname: `movies/${id}`,
                 state: {from: location}
-            }}> {movie.title ? movie.title : movie.name}</Link>
+            }}> {title ? title : name}</Link>
         </li>))
         }
         </ul >

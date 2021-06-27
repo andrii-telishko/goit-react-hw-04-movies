@@ -7,17 +7,17 @@ export default class Reviews extends Component {
     };
 
     componentDidMount() {
-        API.fetchMovieReviews(this.props.movieId).then(reviews => this.setState({ reviews: reviews }))
+        API.fetchMovieReviews(this.props.movieId).then(reviews => this.setState({ reviews: reviews }));
     };
 
     render() {
         return (
             this.state.reviews.length > 0
                 ? <ul>
-                    {this.state.reviews.map(review => (
-                        <li key={review.id}>
-                            <h3>{review.author}</h3>
-                            <p>{review.content}</p>
+                    {this.state.reviews.map(({id, author, content}) => (
+                        <li key={id}>
+                            <h3>{author}</h3>
+                            <p>{content}</p>
                         </li>
                     ))}
                 </ul>

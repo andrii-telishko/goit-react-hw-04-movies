@@ -11,14 +11,15 @@ export default class Cast extends Component {
     };
 
     render() {
+        const IMG_URL = 'https://image.tmdb.org/t/p/w500'
         return (
             <div>
                 <ul>
-                    {this.state.cast.map(actor => (
-                        <li key={actor.id}>
-                            <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} alt={actor.name} />
-                            <h3>{actor.name}</h3>
-                            <p>{actor.character}</p>
+                    {this.state.cast.map(({id, profile_path, name, character}) => (
+                        <li key={id}>
+                            <img src={`${IMG_URL}/${profile_path}`} alt={name} />
+                            <h3>{name}</h3>
+                            <p>{character}</p>
                         </li>
                     ))}
                 </ul>
