@@ -8,9 +8,9 @@ import Container from './components/Container';
 
 const HomePage = lazy(() => import('./pages/HomePage' /* webpackChunkName: "home_page" */));
 
-const MovieDetailPage = lazy(() => import('./pages/MovieDetailPage' /* webpackChunkName: "home_detail_page" */));
+const MovieDetailPage = lazy(() => import('./pages/MovieDetailPage/MovieDetailPage' /* webpackChunkName: "home_detail_page" */));
 
-const MoviesPage = lazy(() => import('./pages/MoviesPage' /* webpackChunkName: "movie_page" */))
+const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage' /* webpackChunkName: "movie_page" */))
 
 function App() {
   return (

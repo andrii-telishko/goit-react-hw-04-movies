@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import RenderMovies from '../components/RenderMovies';
-import API from '../api-service'
+import RenderMovies from '../../components/RenderMovies';
+import API from '../../api-service'
+import './MoviesPage.scss'
 
 export default class MoviePage extends Component {
     state = {
@@ -28,7 +29,7 @@ export default class MoviePage extends Component {
         return (
             <>
                 <form onSubmit={this.renderMovies}>
-                    <input type="text" value={value} onChange={this.setValue} />
+                    <input type="text" value={value} onChange={this.setValue} className='input'/>
                     <button type='submit'>Search</button>
                 </form>
                 {movies.length > 0 && <RenderMovies movies={movies} />}

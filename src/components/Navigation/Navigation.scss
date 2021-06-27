@@ -1,0 +1,16 @@
+.navigation {
+  margin-bottom: 15px;
+  border-bottom: 2px solid black;
+}
+
+.NavLink {
+  text-decoration: none;
+  font-size: 28px;
+  color: black;
+  font-weight: bold;
+  margin-right: 15px;
+
+  &--active {
+    color: red;
+  }
+}

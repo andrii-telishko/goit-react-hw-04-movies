@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import React from 'react';
-import routes from '../../routes'
+import routes from '../../routes';
+import './Navigation.scss'
 
 const Navigation = () => {
     return (
+    <nav className='navigation'>
         <ul>
             <NavLink
                 exact
@@ -17,7 +19,8 @@ const Navigation = () => {
                 activeClassName="NavLink--active"
             >Movies</NavLink>
         </ul >
-    );
+    </nav>
+        );
 };
 
 export default Navigation

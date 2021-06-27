@@ -1,0 +1,20 @@
+.cast-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.cast-container {
+  display: flex;
+  margin-right: 10px;
+  width: 250px;
+  box-shadow: 1px 1px 6px 4px rgba(100, 93, 93, 0.5);
+  -webkit-box-shadow: 1px 1px 6px 4px rgba(100, 93, 93, 0.5);
+  -moz-box-shadow: 1px 1px 6px 4px rgba(100, 93, 93, 0.5);
+  margin-bottom: 15px;
+
+  &_img {
+    height: 150px;
+    margin-right: 10px;
+  }
+}

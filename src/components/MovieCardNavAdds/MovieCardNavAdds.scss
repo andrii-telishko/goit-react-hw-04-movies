@@ -1,0 +1,15 @@
+.adds-list {
+  list-style: none;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #000;
+}
+
+.adds-link {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+
+  &:hover {
+    color: red;
+  }
+}

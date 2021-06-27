@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Cast from '../components/Cast';
-import Reviews from '../components/Reviews';
-import routes from '../routes';
-import API from '../api-service';
-import MovieCard from '../components/MovieCard';
-import MovieCardNavAdds from '../components/MovieCardNavAdds/';
+import Cast from '../../components/Cast';
+import Reviews from '../../components/Reviews';
+import routes from '../../routes';
+import API from '../../api-service';
+import MovieCard from '../../components/MovieCard';
+import MovieCardNavAdds from '../../components/MovieCardNavAdds';
+import './MovieDetailPage.scss'
 
 
 class MovieDetailPage extends Component {
@@ -37,13 +38,13 @@ class MovieDetailPage extends Component {
         const { location } = this.props;
         return (
             <>
-                <button type="button" onClick={this.handleGoBack}>Go Back</button>
+                <button type="button" onClick={this.handleGoBack} className='back-button'>Go Back</button>
                 <MovieCard poster={poster_path}
                     title={title}
                     rating={vote_average}
                     descr={overview}
                     genres={genres }/>
-                <p>Additional information</p>
+                <h2>Additional information</h2>
                 <MovieCardNavAdds id={movieId} location={ location }/>
                 <Route path={`${routes.cast}`} render={props => {
                     return (< Cast movieId={props.match.params.movieId} />)

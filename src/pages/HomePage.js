@@ -14,9 +14,12 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <RenderMovies movies={this.state.movies} />
-        )
-    }
+            <>
+                <h1>Trending movies today</h1>
+                <RenderMovies movies={this.state.movies} />
+            </>
+        );
+    };
 };
 
 
