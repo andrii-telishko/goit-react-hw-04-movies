@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import RenderMovies from '../components/RenderMovies'
+import RenderMovies from '../components/RenderMovies';
+import API from '../api-service'
 
 export default class MoviePage extends Component {
     state = {
@@ -10,9 +10,9 @@ export default class MoviePage extends Component {
 
     renderMovies = (e) => {
         e.preventDefault()
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=cd1e7325345214650c5eb886e4454039&query=${this.state.value}`).then(response => {
-            this.setState({ movies: response.data.results });
-            localStorage.setItem('movies', JSON.stringify(response.data.results))
+        API.fetchMoviesWithSearchQuery(this.state.value).then(movies => {
+            this.setState({ movies: movies });
+            localStorage.setItem('movies', JSON.stringify(movies))
         })
     };
 
@@ -33,5 +33,9 @@ export default class MoviePage extends Component {
         );
     };
 };
+
+
+
+
 
 

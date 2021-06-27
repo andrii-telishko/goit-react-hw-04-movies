@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import API from '../../api-service'
 
 export default class Cast extends Component {
     state = {
@@ -7,7 +7,7 @@ export default class Cast extends Component {
     }
 
     componentDidMount() {
-        axios.get(`https://api.themoviedb.org/3/movie/${this.props.movieId}/credits?api_key=cd1e7325345214650c5eb886e4454039`).then(response => this.setState({ cast: response.data.cast }))
+        API.fetchMovieCast(this.props.movieId).then(cast => this.setState({ cast: cast }))
     };
 
     render() {
@@ -25,4 +25,5 @@ export default class Cast extends Component {
             </div>
         );
     };
-}
+};
+

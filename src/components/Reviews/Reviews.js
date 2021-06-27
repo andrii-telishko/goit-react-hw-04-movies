@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import API from '../../api-service'
 
 export default class Reviews extends Component {
     state = {
         reviews: []
-    }
+    };
+
     componentDidMount() {
-        axios.get(`https://api.themoviedb.org/3/movie/${this.props.movieId}/reviews?api_key=cd1e7325345214650c5eb886e4454039`).then(response => this.setState({ reviews: response.data.results }))
-    }
+        API.fetchMovieReviews(this.props.movieId).then(reviews => this.setState({ reviews: reviews }))
+    };
 
     render() {
         return (<ul>
@@ -19,4 +20,10 @@ export default class Reviews extends Component {
             ))}
         </ul>)
     }
-}
+};
+
+
+
+ 
+
+

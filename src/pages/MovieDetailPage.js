@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Route, Link } from 'react-router-dom';
 import Cast from '../components/Cast';
 import Reviews from '../components/Reviews';
-import routes from '../routes'
+import routes from '../routes';
+import API from '../api-service'
 
 export default class MovieDetailPage extends Component {
     state = {
@@ -16,7 +16,7 @@ export default class MovieDetailPage extends Component {
     };
 
     componentDidMount() {
-        axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=cd1e7325345214650c5eb886e4454039`).then(response => this.setState({ ...response.data }))
+        API.fetchMovieDetails(this.props.match.params.movieId).then(data => this.setState({ ...data }))
     };
 
     handleGoBack = () => {
@@ -65,3 +65,4 @@ export default class MovieDetailPage extends Component {
         );
     };
 };
+

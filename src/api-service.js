@@ -8,7 +8,7 @@ const API = {
     },
 
     fetchMoviesWithSearchQuery(query) {
-        return axios.get(`${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&query=${query}`).then(response => response.data.result);;
+        return axios.get(`${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&query=${query}`).then(response => response.data.results);
     },
 
     fetchMovieDetails(id) {
@@ -16,11 +16,11 @@ const API = {
     },
 
     fetchMovieReviews(id) {
-        return axios.get(`${this.BASE_URL}/movie/${id}/reviews?api_key=${this.API_KEY}`).this(response => response.data.results)
+        return axios.get(`${this.BASE_URL}/movie/${id}/reviews?api_key=${this.API_KEY}`).then(response => response.data.results);
     },
 
     fetchMovieCast(id) {
-        return axios.get(`{this.BASE_URL}/movie/${id}/credits?api_key=${this.API_KEY}`).then(response => response.data.cast)
+        return axios.get(`${this.BASE_URL}/movie/${id}/credits?api_key=${this.API_KEY}`).then(response => response.data.cast)
     }
 };
 

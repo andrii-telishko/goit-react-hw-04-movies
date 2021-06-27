@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import RenderMovies from '../components/RenderMovies'
+import RenderMovies from '../components/RenderMovies';
+import API from '../api-service'
 
 export default class HomePage extends Component {
     state = {
@@ -8,7 +8,7 @@ export default class HomePage extends Component {
     };
 
     componentDidMount() {
-        axios.get('https://api.themoviedb.org/3/trending/all/day?api_key=cd1e7325345214650c5eb886e4454039').then(response => { this.setState({ movies: response.data.results }) });
+        API.fetchTrendingMovies().then(movies => { this.setState({ movies: movies }) });
         localStorage.setItem('movies', JSON.stringify([]))
     };
 
@@ -18,6 +18,7 @@ export default class HomePage extends Component {
         )
     }
 };
+
 
 
 
