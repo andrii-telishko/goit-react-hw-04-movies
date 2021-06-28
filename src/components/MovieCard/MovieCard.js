@@ -2,10 +2,10 @@ import React from 'react';
 import './MovieCard.scss'
 
 function MovieCard({poster, title, rating, descr, genres}) {
-    const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+    const IMG_URL = 'https://image.tmdb.org/t/p/w300';
     return (
             <div className='card-container'>
-            <img src={`${IMG_URL}/${poster}`} alt={title} className='card-img'/>
+            <img src={`${IMG_URL}${poster}`} alt={title} className='card-img'/>
             <div>
                 <h2>{title}</h2>
                     <p className='rating-text'>Movie rating: {rating}</p>

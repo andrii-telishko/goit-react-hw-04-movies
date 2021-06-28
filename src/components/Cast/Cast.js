@@ -12,7 +12,7 @@ export default class Cast extends Component {
     };
 
     render() {
-        const IMG_URL = 'https://image.tmdb.org/t/p/w500'
+        const IMG_URL = 'https://image.tmdb.org/t/p/w300'
         return (
             <ul className='cast-list'>
                     {this.state.cast.map(({id, profile_path, name, character}) => (
