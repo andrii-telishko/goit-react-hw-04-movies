@@ -27,8 +27,9 @@ class MovieDetailPage extends Component {
 
         if (location.state && location.state.from) {
           return history.push(location.state.from);
-        };
+        } 
 
+        
          history.push(`${routes.home}`);
     };
 

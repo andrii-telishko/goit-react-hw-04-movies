@@ -9,14 +9,14 @@ function MovieCardNavAdds({id, location}) {
                     <li>
                         <Link to={{
                             pathname: `${routes.movies}/${id}/cast`,
-                            state: { from: location }
+                            state: { from: location.state.from }
                         }} className='adds-link'
                         >Cast</Link>
                     </li>
                     <li>
                         <Link to={{
                             pathname: `${routes.movies}/${id}/reviews`,
-                            state: { from: location }
+                            state: { from: location.state.from }
                         }} className='adds-link'
                         >Reviews</Link>
                     </li>
